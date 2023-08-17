@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="username">Utilizador</string>
+    <string name="password">Palavra chave</string>
+    <string name="register">Registar</string>
+    <string name="regText">Novo por aqui? Clica para te registares</string>
+    <string name="conPassword">Confirmar palavra chave</string>
+    <string name="error">Erro</string>
+    <string name="notFound">Utilizador ou palavra chave incorretos</string>
+    <string name="welcome">Noto por aqui? Bem-vindo a \n FinanControl</string>
+    <string name="gender">Gênero:</string>
+    <string name="other">Outro</string>
+    <string name="back">Voltar</string>
+    <string name="already">Utilizador já existe</string>
+</resources>

@@ -1,11 +1,20 @@
 <resources>
-    <string name="app_name">FinanControl</string>
+    <string name="app_name" translatable="false">FinanControl</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
-    <string name="login">Login</string>
+    <string name="login" translatable="false">Login</string>
     <string name="register">Register</string>
     <string name="regText">New Here? Click Here to Register </string>
     <string name="conPassword">Confirm Password</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error">Error</string>
+    <string name="notFound">Username or Password incorrect</string>
+    <string name="welcome">New Here? Welcome to \n FinanControl</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="gender">Gender:</string>
+    <string name="m" translatable="false">M</string>
+    <string name="f" translatable="false">F</string>
+    <string name="other">Other</string>
+    <string name="back">Back</string>
+    <string name="already">User already exists</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>
