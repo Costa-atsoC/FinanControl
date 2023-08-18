@@ -1,14 +1,16 @@
-package com.example.manager.data
+package com.example.manager.data.user
 
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import com.example.manager.data.interfaces.LoginCallback
 import com.example.manager.data.interfaces.RegisterCallback
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import org.mindrot.jbcrypt.BCrypt
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -59,14 +61,26 @@ object DbFunctionsUser {
 
     }
 
-    fun checkUser(name: String, pass: String, callback: LoginCallback){
+    fun checkUser(name: String, pass: String, sharedViewModel: SharedViewModel, callback: LoginCallback){
         db.collection(col)
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     if(document.data["Name"] == name && BCrypt.checkpw(pass, document.data["Password"].toString())){
-                        callback.onLoginSuccess()
-                        return@addOnSuccessListener
+                        try {
+                            sharedViewModel.setCurrentUser(
+                                convertToInt(document.data["Id"]),
+                                document.data["Name"].toString(),
+                                document.data["Email"].toString(),
+                                document.data["Password"].toString(),
+                                document.data["Gender"].toString()
+                            )
+                            callback.onLoginSuccess()
+                            return@addOnSuccessListener
+                        }catch (e: IOException){
+                            callback.onLoginError()
+                            return@addOnSuccessListener
+                        }
                     }
                 }
                 callback.onLoginNotFound()
@@ -77,5 +91,17 @@ object DbFunctionsUser {
                 callback.onLoginError()
                 return@addOnFailureListener
             }
+    }
+}
+
+private fun convertToInt(value: Any?): Int {
+    return when (value) {
+        is Int -> value
+        is Double -> value.toInt()
+        is Float -> value.toInt()
+        is Long -> value.toInt()
+        is Short -> value.toInt()
+        is Byte -> value.toInt()
+        else -> {-1}
     }
 }

@@ -9,8 +9,8 @@ import android.widget.RadioButton
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.findNavController
 import com.example.manager.R
-import com.example.manager.data.DbFunctionsUser
-import com.example.manager.data.User
+import com.example.manager.data.user.DbFunctionsUser
+import com.example.manager.data.user.User
 import com.example.manager.data.interfaces.RegisterCallback
 import com.example.manager.databinding.FragmentRegisterBinding
 
