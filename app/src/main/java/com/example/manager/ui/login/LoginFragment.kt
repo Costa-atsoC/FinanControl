@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.manager.R
 import com.example.manager.data.user.DbFunctionsUser
-import com.example.manager.data.interfaces.LoginCallback
+import com.example.manager.data.user.interfaces.LoginCallback
 import com.example.manager.data.user.SharedViewModel
 import com.example.manager.data.user.SharedViewModel.Pref
 import com.example.manager.databinding.FragmentLoginBinding

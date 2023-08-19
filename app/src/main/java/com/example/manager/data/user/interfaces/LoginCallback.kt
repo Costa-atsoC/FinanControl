@@ -1,4 +1,4 @@
-package com.example.manager.data.interfaces
+package com.example.manager.data.user.interfaces
 
 import com.example.manager.data.user.User
 

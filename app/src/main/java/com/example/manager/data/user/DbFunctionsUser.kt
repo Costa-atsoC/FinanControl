@@ -3,9 +3,9 @@ package com.example.manager.data.user
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.util.Log
-import androidx.lifecycle.ViewModelProvider
-import com.example.manager.data.interfaces.LoginCallback
-import com.example.manager.data.interfaces.RegisterCallback
+import com.example.manager.data.Convert.convertToInt
+import com.example.manager.data.user.interfaces.LoginCallback
+import com.example.manager.data.user.interfaces.RegisterCallback
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -94,14 +94,4 @@ object DbFunctionsUser {
     }
 }
 
-private fun convertToInt(value: Any?): Int {
-    return when (value) {
-        is Int -> value
-        is Double -> value.toInt()
-        is Float -> value.toInt()
-        is Long -> value.toInt()
-        is Short -> value.toInt()
-        is Byte -> value.toInt()
-        else -> {-1}
-    }
-}
+

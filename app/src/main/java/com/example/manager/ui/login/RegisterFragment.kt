@@ -11,7 +11,7 @@ import androidx.navigation.findNavController
 import com.example.manager.R
 import com.example.manager.data.user.DbFunctionsUser
 import com.example.manager.data.user.User
-import com.example.manager.data.interfaces.RegisterCallback
+import com.example.manager.data.user.interfaces.RegisterCallback
 import com.example.manager.databinding.FragmentRegisterBinding
 
 class RegisterFragment : Fragment() {
@@ -30,7 +30,7 @@ class RegisterFragment : Fragment() {
             val genId = (0..999999999).random()
             val newUser = User(genId, name, email, pass, gender)
             println(newUser)
-            DbFunctionsUser.addUser(newUser, object : RegisterCallback{
+            DbFunctionsUser.addUser(newUser, object : RegisterCallback {
                 override fun onRegisterSuccess() {
                     view!!.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                 }

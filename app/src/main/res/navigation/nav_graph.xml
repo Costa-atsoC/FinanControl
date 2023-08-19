@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/informationFragment"
-        android:name="com.example.manager.ui.InformationFragment"
+        android:name="com.example.manager.ui.information.InformationFragment"
         android:label="fragment_information"
         tools:layout="@layout/fragment_information" />
 </navigation>

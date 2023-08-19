@@ -1,4 +1,4 @@
-package com.example.manager.data.interfaces
+package com.example.manager.data.user.interfaces
 
 interface RegisterCallback {
     fun onRegisterSuccess()

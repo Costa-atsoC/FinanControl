@@ -1,4 +1,5 @@
 <resources>
+    <!-- Login and register -->
     <string name="app_name" translatable="false">FinanControl</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -16,5 +17,8 @@
     <string name="other">Other</string>
     <string name="back">Back</string>
     <string name="already">User already exists</string>
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+
+    <!-- Information -->
+    <string name="noInfo">You haven\'t add anything. \n Start now by clicking \n on the + button</string>
+    <string name="errorInfo">This is awkward but there was an error </string>
 </resources>

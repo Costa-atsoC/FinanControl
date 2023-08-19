@@ -12,4 +12,6 @@
     <string name="other">Outro</string>
     <string name="back">Voltar</string>
     <string name="already">Utilizador já existe</string>
+    <string name="noInfo">Ainda não adicionas-te nada \n começa agora ao clicar no + butão</string>
+    <string name="errorInfo">Isto é estranho mas houve um erro</string>
 </resources>
