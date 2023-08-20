@@ -30,5 +30,48 @@
         android:id="@+id/informationFragment"
         android:name="com.example.manager.ui.information.InformationFragment"
         android:label="fragment_information"
-        tools:layout="@layout/fragment_information" />
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informationFragment_to_addInfoFragment"
+            app:destination="@id/addInfoFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_toPayFragment"
+            app:destination="@id/toPayFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addInfoFragment"
+        android:name="com.example.manager.ui.information.AddInfoFragment"
+        android:label="fragment_add_info"
+        tools:layout="@layout/fragment_add_info" >
+        <action
+            android:id="@+id/action_addInfoFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/toPayFragment"
+        android:name="com.example.manager.ToPayFragment"
+        android:label="fragment_to_pay"
+        tools:layout="@layout/fragment_to_pay" >
+        <action
+            android:id="@+id/action_toPayFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_toPayFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.manager.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_informationFragment"
+            app:destination="@id/informationFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_toPayFragment"
+            app:destination="@id/toPayFragment" />
+    </fragment>
 </navigation>

@@ -21,4 +21,12 @@
     <!-- Information -->
     <string name="noInfo">You haven\'t add anything. \n Start now by clicking \n on the + button</string>
     <string name="errorInfo">This is awkward but there was an error </string>
+
+    <!-- Menu -->
+    <string name="list">List</string>
+    <string name="toPay">To Pay</string>
+    <string name="menu">Menu</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

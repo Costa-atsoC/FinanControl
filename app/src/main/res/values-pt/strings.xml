@@ -14,4 +14,7 @@
     <string name="already">Utilizador já existe</string>
     <string name="noInfo">Ainda não adicionas-te nada \n começa agora ao clicar no + butão</string>
     <string name="errorInfo">Isto é estranho mas houve um erro</string>
+    <string name="list">Lista</string>
+    <string name="toPay">Por pagar</string>
+    <string name="menu">Menu</string>
 </resources>

@@ -5,21 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.manager.MenuFragment
 import com.example.manager.R
+import com.example.manager.ToPayFragment
 import com.example.manager.data.information.DbFunctionsInformation
 import com.example.manager.data.information.Information
 import com.example.manager.data.information.interfaces.InformationCallback
 import com.example.manager.data.user.SharedViewModel
 import com.example.manager.databinding.FragmentInformationBinding
+import com.example.manager.ui.NavBarChange
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class InformationFragment : Fragment() {
     private var _binding: FragmentInformationBinding? = null
     private val sharedViewModel: SharedViewModel by lazy {
         ViewModelProvider(requireActivity())[SharedViewModel::class.java]
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +40,12 @@ class InformationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        NavBarChange(_binding!!.bottomNav, parentFragmentManager, R.id.nav_host_fragment_content_main)
         getInformation()
+
+        _binding!!.infoAdd.setOnClickListener {
+            view.findNavController().navigate(R.id.action_informationFragment_to_addInfoFragment)
+        }
     }
 
     private fun loading(){
@@ -55,7 +67,7 @@ class InformationFragment : Fragment() {
     }
 
     private fun getInformation(){
-        var data: ArrayList<Information> = ArrayList()
+        val data: ArrayList<Information> = ArrayList()
         val warn = _binding!!.infoWarn
         DbFunctionsInformation.getInformation(sharedViewModel.currentUser.id, data, object : InformationCallback{
             override fun onInformationFound() {
