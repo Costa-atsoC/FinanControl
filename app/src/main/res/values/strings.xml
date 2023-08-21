@@ -27,6 +27,24 @@
     <string name="toPay">To Pay</string>
     <string name="menu">Menu</string>
 
+    <!-- Add Information -->
+    <string name="addInfo">Add new Information</string>
+    <string name="title">Title</string>
+    <string name="desc">Description</string>
+    <string name="value">Value: </string>
+    <string name="positive">Lose?</string>
+    <string name="add">Add</string>
+    <string name="methode">Methode:</string>
+
+    <!-- Categories for the Info-->
+    <string name="categories">Categories:</string>
+    <string name="groceries">Groceries</string>
+    <string name="Drinks">Drinks</string>
+    
+    <string name="money">Money</string>
+    <string name="MbWay" translatable="false">MbWay</string>
+    <string name="Bank">Bank</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
 </resources>

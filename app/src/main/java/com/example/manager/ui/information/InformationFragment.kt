@@ -1,6 +1,7 @@
 package com.example.manager.ui.information
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +31,7 @@ class InformationFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        Log.d("Begin", "Information")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -44,7 +45,11 @@ class InformationFragment : Fragment() {
         getInformation()
 
         _binding!!.infoAdd.setOnClickListener {
-            view.findNavController().navigate(R.id.action_informationFragment_to_addInfoFragment)
+            try {
+                view.findNavController().navigate(R.id.action_informationFragment_to_addInfoFragment)
+            } catch (e: Exception) {
+                Log.e("Navigation", "Navigation error: ${e.message}")
+            }
         }
     }
 
@@ -53,6 +58,7 @@ class InformationFragment : Fragment() {
         val recycler = _binding!!.infoRecycler
         val warn = _binding!!.infoWarn
         val add = _binding!!.infoAdd
+
         if(load.visibility == View.VISIBLE){
             recycler.visibility = View.VISIBLE
             warn.visibility = View.VISIBLE
@@ -78,21 +84,17 @@ class InformationFragment : Fragment() {
                     val adapter = CustomAdapterInformation(data)
                     recycler.adapter = adapter
                 }
-                loading()
-
             }
 
             override fun onInformationError() {
                 warn.text = getString(R.string.errorInfo)
-                loading()
-
             }
 
             override fun onInformationNotFound() {
                 warn.text = getString(R.string.noInfo)
-                loading()
-
             }
         })
+        loading()
+
     }
 }

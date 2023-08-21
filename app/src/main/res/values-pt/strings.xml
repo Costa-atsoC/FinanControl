@@ -17,4 +17,16 @@
     <string name="list">Lista</string>
     <string name="toPay">Por pagar</string>
     <string name="menu">Menu</string>
+    <string name="addInfo">Adicionar nova Informação</string>
+    <string name="title">Titlo</string>
+    <string name="desc">Descrição</string>
+    <string name="value">Valor:</string>
+    <string name="positive">Perda?</string>
+    <string name="add">Adicionar</string>
+    <string name="categories">"Categorias: "</string>
+    <string name="groceries">Mercearia</string>
+    <string name="Drinks">Bebida</string>
+    <string name="money">Dinheiro</string>
+    <string name="Bank">Banco</string>
+    <string name="methode">Metodo</string>
 </resources>

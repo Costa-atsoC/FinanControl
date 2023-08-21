@@ -32,14 +32,14 @@
         android:label="fragment_information"
         tools:layout="@layout/fragment_information" >
         <action
-            android:id="@+id/action_informationFragment_to_addInfoFragment"
-            app:destination="@id/addInfoFragment" />
-        <action
             android:id="@+id/action_informationFragment_to_toPayFragment"
             app:destination="@id/toPayFragment" />
         <action
             android:id="@+id/action_informationFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_informationFragment_to_addInfoFragment"
+            app:destination="@id/addInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/addInfoFragment"
@@ -73,5 +73,8 @@
         <action
             android:id="@+id/action_menuFragment_to_toPayFragment"
             app:destination="@id/toPayFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 </navigation>
