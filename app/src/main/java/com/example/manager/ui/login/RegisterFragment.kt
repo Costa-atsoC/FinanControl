@@ -64,12 +64,15 @@ class RegisterFragment : Fragment() {
     }
 
     private fun unlockBtn(){
-        _binding!!.regBtn.isEnabled =
-            _binding!!.regUser.text.isNotEmpty()
-                    && _binding!!.regPass.text.isNotEmpty()
-                    && _binding!!.regConfPass.text.isNotEmpty()
-                    && _binding!!.regGender.checkedRadioButtonId != -1
-                    && _binding!!.regEmail.text.isNotEmpty()
+        _binding?.apply {
+            regBtn.isEnabled =
+                regUser.text.isNotEmpty()
+                        && regPass.text.isNotEmpty()
+                        && regConfPass.text.isNotEmpty()
+                        && regGender.checkedRadioButtonId != -1
+                        && regEmail.text.isNotEmpty()
+        }
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

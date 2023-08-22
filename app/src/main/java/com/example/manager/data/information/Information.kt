@@ -8,5 +8,6 @@ data class Information(
     var title: String = "",
     var description: String = "",
     var date: String = "",
+    var payed: Boolean = true,
     var settings: ArrayList<String> = ArrayList()
     )

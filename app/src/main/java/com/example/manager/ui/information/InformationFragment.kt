@@ -84,17 +84,21 @@ class InformationFragment : Fragment() {
                     val adapter = CustomAdapterInformation(data)
                     recycler.adapter = adapter
                 }
+                loading()
             }
 
             override fun onInformationError() {
                 warn.text = getString(R.string.errorInfo)
+                loading()
+
             }
 
             override fun onInformationNotFound() {
                 warn.text = getString(R.string.noInfo)
+                loading()
+
             }
         })
-        loading()
 
     }
 }

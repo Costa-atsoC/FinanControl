@@ -7,7 +7,7 @@
     tools:context=".ui.information.AddInfoFragment">
 
     <EditText
-        android:id="@+id/addText"
+        android:id="@+id/addTitle"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginStart="56dp"
@@ -32,10 +32,10 @@
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/addText" />
+        app:layout_constraintTop_toBottomOf="@+id/addTitle" />
 
     <Switch
-        android:id="@+id/addWin"
+        android:id="@+id/addLose"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="56dp"
@@ -43,7 +43,7 @@
         android:fontFamily="@font/playfairdisplay_variablefont_wght"
         android:text="@string/positive"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addText" />
+        app:layout_constraintTop_toBottomOf="@+id/addTitle" />
 
     <TextView
         android:id="@+id/textView4"
@@ -54,8 +54,8 @@
         android:fontFamily="@font/playfairdisplay_variablefont_wght"
         android:gravity="center|center_vertical"
         android:text="@string/value"
-        app:layout_constraintStart_toEndOf="@+id/addWin"
-        app:layout_constraintTop_toBottomOf="@+id/addText" />
+        app:layout_constraintStart_toEndOf="@+id/addLose"
+        app:layout_constraintTop_toBottomOf="@+id/addTitle" />
 
     <EditText
         android:id="@+id/addDescription"
@@ -146,7 +146,7 @@
         android:gravity="center|center_vertical"
         android:text="@string/categories"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addWin" />
+        app:layout_constraintTop_toBottomOf="@+id/addLose" />
 
     <Button
         android:id="@+id/addBtn"

@@ -9,6 +9,7 @@ object Convert {
             is Long -> value.toInt()
             is Short -> value.toInt()
             is Byte -> value.toInt()
+            is String -> value.toInt()
             else -> {-1}
         }
     }
@@ -21,6 +22,7 @@ object Convert {
             is Long -> value.toDouble()
             is Short -> value.toDouble()
             is Byte -> value.toDouble()
+            is String -> value.toDouble()
             else -> {-1.0}
         }
     }
