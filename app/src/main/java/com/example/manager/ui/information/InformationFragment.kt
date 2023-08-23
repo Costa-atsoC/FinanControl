@@ -1,5 +1,6 @@
 package com.example.manager.ui.information
 
+import SpacingItemDecoration
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -75,14 +76,22 @@ class InformationFragment : Fragment() {
     private fun getInformation(){
         val data: ArrayList<Information> = ArrayList()
         val warn = _binding!!.infoWarn
+
         DbFunctionsInformation.getInformation(sharedViewModel.currentUser.id, data, object : InformationCallback{
             override fun onInformationFound() {
+                //Sorting the data by date so it appears corresponding to the actual time
+                data.sortByDescending { it.date }
                 val recycler: RecyclerView = _binding!!.infoRecycler
                 requireActivity().runOnUiThread {
                     recycler.layoutManager = LinearLayoutManager(requireContext())
 
-                    val adapter = CustomAdapterInformation(data)
+                    val adapter = CustomAdapterInformation(data, requireContext())
                     recycler.adapter = adapter
+
+                    // Add spacing between items using ItemDecoration
+                    val spacingInPixels = resources.getDimensionPixelSize(R.dimen.itemRecycler)
+                    recycler.addItemDecoration(SpacingItemDecoration(spacingInPixels))
+
                 }
                 loading()
             }

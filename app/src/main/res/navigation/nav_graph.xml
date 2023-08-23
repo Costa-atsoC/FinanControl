@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_toPayFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_toPayFragment_to_addToPay"
+            app:destination="@id/addToPay" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -76,5 +79,14 @@
         <action
             android:id="@+id/action_menuFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addToPay"
+        android:name="com.example.manager.addToPay"
+        android:label="fragment_add_to_pay"
+        tools:layout="@layout/fragment_add_to_pay" >
+        <action
+            android:id="@+id/action_addToPay_to_toPayFragment"
+            app:destination="@id/toPayFragment" />
     </fragment>
 </navigation>

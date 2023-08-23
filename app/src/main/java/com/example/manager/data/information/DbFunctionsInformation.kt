@@ -59,6 +59,9 @@ object DbFunctionsInformation {
     }
 
     fun addInformation(data: Information, callback: AddInformationCallback){
+        if(data.settings.contains("")){
+            data.settings.remove("")
+        }
         val information = hashMapOf(
             "Id" to data.id,
             "UserId" to data.userId,

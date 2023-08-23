@@ -40,12 +40,28 @@
     <string name="categories">Categories:</string>
     <string name="groceries">Groceries</string>
     <string name="Drinks">Drinks</string>
-    
+
     <string name="money">Money</string>
     <string name="MbWay" translatable="false">MbWay</string>
     <string name="Bank">Bank</string>
 
     <string name="addedInfo">Information Added</string>
+
+    <string name="jan">January</string>
+    <string name="feb">February</string>
+    <string name="mar">March</string>
+    <string name="apr">April</string>
+    <string name="may">May</string>
+    <string name="jun">June</string>
+    <string name="jul">July</string>
+    <string name="aug">August</string>
+    <string name="sep">September</string>
+    <string name="oct">October</string>
+    <string name="nov">November</string>
+    <string name="dec">December</string>
+
+    <!-- Menu -->
+    <string name="logOut">LogOut</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
