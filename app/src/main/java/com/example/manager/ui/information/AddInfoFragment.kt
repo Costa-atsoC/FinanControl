@@ -1,7 +1,6 @@
 package com.example.manager.ui.information
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +17,7 @@ import com.example.manager.data.information.Information
 import com.example.manager.data.information.interfaces.AddInformationCallback
 import com.example.manager.data.user.SharedViewModel
 import com.example.manager.databinding.FragmentAddInfoBinding
-import showCustomToast
+import com.example.manager.ui.showCustomToast
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -51,7 +50,6 @@ class AddInfoFragment : Fragment() {
 
         //If the user select the lose it needs the categories
         _binding!!.addLose.setOnCheckedChangeListener { _, isChecked ->
-            Log.d("isChecked", isChecked.toString())
             switchMode(isChecked)
             enableBtn()
         }

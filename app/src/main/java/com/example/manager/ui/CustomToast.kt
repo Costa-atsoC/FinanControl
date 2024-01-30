@@ -1,3 +1,5 @@
+package com.example.manager.ui
+
 import android.app.Activity
 import android.view.Gravity
 import android.widget.TextView

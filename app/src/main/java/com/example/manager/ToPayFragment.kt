@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.manager.databinding.FragmentInformationBinding
 import com.example.manager.databinding.FragmentToPayBinding
-import com.example.manager.ui.NavBarChange
 import com.example.manager.ui.information.InformationFragment
 
 class ToPayFragment : Fragment() {

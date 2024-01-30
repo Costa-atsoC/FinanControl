@@ -32,23 +32,11 @@ class CustomAdapterInformation(private val itemsList: List<Information>, private
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = itemsList[position]
 
-        if(position == 0){
+        if(item.id == -1){
             //if it's the first item, we show the date
             holder.date.text = dateFormat(item)
-        }else {
-            val itemPreview = itemsList[position - 1]
-
-            if(position != (itemsList.size -1)){
-                if(item.date.split("")[0] != itemsList[position + 1].date.split("")[0]){
-                    holder.date.text = dateFormat(item)
-                }
-            }else {
-                //if the date is different from the previous item, we show the date
-                if (item.date.split("")[0] != itemPreview.date.split("")[0]) {
-                    holder.date.text = dateFormat(item)
-                }
-            }
         }
+
         if(holder.date.text.isEmpty()) {
             // sets the image to the imageview from our itemHolder class
             for (i in 0 until item.settings.size) {
@@ -68,9 +56,9 @@ class CustomAdapterInformation(private val itemsList: List<Information>, private
 
     //formats the date
     private fun dateFormat(item: Information): String{
-        val fullDate = item.date.split(" ")
-        val day = fullDate[0].split("-")[2].toInt()
-        val month = when(fullDate[0].split("-")[1].toInt()){
+        val fullDate = item.date.split("-")
+        val day = fullDate[2].toInt()
+        val month = when(fullDate[1].toInt()){
             1 -> context.getString(R.string.jan)
             2 -> context.getString(R.string.feb)
             3 -> context.getString(R.string.mar)

@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,8 +19,10 @@ import com.example.manager.data.information.Information
 import com.example.manager.data.information.interfaces.InformationCallback
 import com.example.manager.data.user.SharedViewModel
 import com.example.manager.databinding.FragmentInformationBinding
-import com.example.manager.ui.NavBarChange
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.logging.SimpleFormatter
 
 class InformationFragment : Fragment() {
     private var _binding: FragmentInformationBinding? = null
@@ -32,7 +33,7 @@ class InformationFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("Begin", "Information")
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -97,22 +98,34 @@ class InformationFragment : Fragment() {
 
     private fun getInformation(){
         val data: ArrayList<Information> = ArrayList()
+        val trueData: ArrayList<Information> = ArrayList()
         val warn = _binding!!.infoWarn
 
         DbFunctionsInformation.getInformation(sharedViewModel.currentUser.id, data, object : InformationCallback{
             override fun onInformationFound() {
                 //Sorting the data by date so it appears corresponding to the actual time
                 data.sortByDescending { it.date }
+                if(data.size > 0){
+
+                    val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+                    //We add a fake data with only the data so we can do the date
+                    for(i in 0 until data.size){
+                        if(!trueData.any{ it.id == -1 && it.date == data[i].date.split(" ")[0]}){
+                            trueData.add(Information(date = data[i].date.split(" ")[0]))
+                        }
+                        trueData.add(data[i])
+                    }
+
+                }
                 val recycler: RecyclerView = _binding!!.infoRecycler
                 requireActivity().runOnUiThread {
                     recycler.layoutManager = LinearLayoutManager(requireContext())
 
-                    val adapter = CustomAdapterInformation(data, requireContext())
+                    val adapter = CustomAdapterInformation(trueData, requireContext())
                     recycler.adapter = adapter
 
                     // Add spacing between items using ItemDecoration
-                    val spacingInPixels = resources.getDimensionPixelSize(R.dimen.itemRecycler)
-                    recycler.addItemDecoration(SpacingItemDecoration(spacingInPixels))
+                    recycler.addItemDecoration(SpacingItemDecoration(resources.getDimensionPixelSize(R.dimen.itemRecycler)))
 
                 }
                 loading()
