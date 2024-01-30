@@ -43,7 +43,9 @@
         android:fontFamily="@font/playfairdisplay_variablefont_wght"
         android:text="@string/positive"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/addTitle"
+        android:thumb="@drawable/custom_switch"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/textView4"

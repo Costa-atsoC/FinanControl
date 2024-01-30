@@ -42,7 +42,23 @@ class InformationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        NavBarChange(_binding!!.bottomNav, parentFragmentManager, R.id.nav_host_fragment_content_main)
+        _binding!!.bottomNav.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.list -> {
+                    loadFragment(InformationFragment())
+                    true
+                }
+                R.id.toPay -> {
+                    loadFragment(ToPayFragment())
+                    true
+                }
+                R.id.menu -> {
+                    loadFragment(MenuFragment())
+                    true
+                }
+                else -> false
+            }
+        }
         getInformation()
 
         _binding!!.infoAdd.setOnClickListener {
@@ -52,6 +68,12 @@ class InformationFragment : Fragment() {
                 Log.e("Navigation", "Navigation error: ${e.message}")
             }
         }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = fragmentManager?.beginTransaction()
+        transaction!!.replace(R.id.nav_host_fragment_content_main, fragment)
+        transaction.commit()
     }
 
     private fun loading(){

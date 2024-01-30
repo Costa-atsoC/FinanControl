@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.manager.databinding.FragmentInformationBinding
 import com.example.manager.databinding.FragmentMenuBinding
 import com.example.manager.ui.NavBarChange
+import com.example.manager.ui.information.InformationFragment
 
 class MenuFragment : Fragment() {
     private var _binding: FragmentMenuBinding? = null
@@ -24,7 +25,29 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        NavBarChange(_binding!!.bottomNav, parentFragmentManager, R.id.nav_host_fragment_content_main)
+
+        _binding!!.bottomNav.setOnItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.list -> {
+                    loadFragment(InformationFragment())
+                    true
+                }
+                R.id.toPay -> {
+                    loadFragment(ToPayFragment())
+                    true
+                }
+                R.id.menu -> {
+                    loadFragment(MenuFragment())
+                    true
+                }
+                else -> false
+            }
+        }    }
+
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = fragmentManager?.beginTransaction()
+        transaction!!.replace(R.id.nav_host_fragment_content_main, fragment)
+        transaction.commit()
     }
 
 }

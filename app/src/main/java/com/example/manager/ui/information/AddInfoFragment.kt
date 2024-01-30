@@ -1,6 +1,7 @@
 package com.example.manager.ui.information
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -32,7 +33,6 @@ class AddInfoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -51,8 +51,9 @@ class AddInfoFragment : Fragment() {
 
         //If the user select the lose it needs the categories
         _binding!!.addLose.setOnCheckedChangeListener { _, isChecked ->
-            enableBtn()
+            Log.d("isChecked", isChecked.toString())
             switchMode(isChecked)
+            enableBtn()
         }
 
         _binding!!.addTitle.addTextChangedListener{
@@ -93,7 +94,6 @@ class AddInfoFragment : Fragment() {
                 radioButton.isSelected = statusWin
             }
         }
-
     }
 
     private fun enableBtn(){
@@ -103,14 +103,9 @@ class AddInfoFragment : Fragment() {
             val isMethodSelected = addMethode.checkedRadioButtonId != -1
             val isValueNotEmpty = addValue.text.isNotEmpty()
 
-            addLose.setOnCheckedChangeListener { _, isChecked ->
-                if(isChecked){
-                    addBtn.isEnabled = addCategories.checkedRadioButtonId != -1 && isTitleNotEmpty && isDescriptionNotEmpty && isMethodSelected && isValueNotEmpty
-
-                }else {
-                    addBtn.isEnabled = isTitleNotEmpty && isDescriptionNotEmpty && isMethodSelected && isValueNotEmpty
-
-                }
+            addBtn.isEnabled = when {
+                addLose.isChecked -> addCategories.checkedRadioButtonId != -1 && isTitleNotEmpty && isDescriptionNotEmpty && isMethodSelected && isValueNotEmpty
+                else -> isTitleNotEmpty && isDescriptionNotEmpty && isMethodSelected && isValueNotEmpty
             }
 
         }
